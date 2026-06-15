@@ -33,6 +33,10 @@ export class CreateJobApplicationDto {
   appliedDate?: string;
 
   @IsOptional()
+  @IsDateString()
+  application_last_date?: string;
+
+  @IsOptional()
   @IsString()
   salaryRange?: string;
 

@@ -29,6 +29,7 @@ model JobApplication {
 
   source        String
   appliedDate   DateTime @default(now())
+  application_last_date DateTime?
 
   salaryRange   String?
 

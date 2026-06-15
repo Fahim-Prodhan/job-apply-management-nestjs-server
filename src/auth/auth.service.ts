@@ -33,7 +33,7 @@ export class AuthService {
       },
     });
 
-    return this.signToken(user.id, user.email);
+    return this.signToken(user.id, user.email, user.name);
   }
 
   async login(dto: LoginDto) {
@@ -46,15 +46,20 @@ export class AuthService {
     const isMatch = await bcrypt.compare(dto.password, user.password);
     if (!isMatch) throw new UnauthorizedException('Invalid credentials');
 
-    return this.signToken(user.id, user.email);
+    return this.signToken(user.id, user.email, user.name);
   }
 
-  private async signToken(userId: string, email: string) {
+  private async signToken(userId: string, email: string, name?: string | null) {
     const payload = { sub: userId, email };
     const token = await this.jwt.signAsync(payload);
 
     return {
       access_token: token,
+      user: {
+        id: userId,
+        email,
+        name: name || undefined,
+      },
     };
   }
 }

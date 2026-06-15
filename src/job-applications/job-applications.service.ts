@@ -29,6 +29,9 @@ export class JobApplicationsService {
       contactPerson: dto.contactPerson,
       contactEmail: dto.contactEmail,
       appliedDate: dto.appliedDate ? new Date(dto.appliedDate) : undefined,
+      application_last_date: dto.application_last_date
+        ? new Date(dto.application_last_date)
+        : undefined,
       interviewDate: dto.interviewDate
         ? new Date(dto.interviewDate)
         : undefined,
@@ -74,6 +77,9 @@ export class JobApplicationsService {
       contactPerson: dto.contactPerson,
       contactEmail: dto.contactEmail,
       appliedDate: dto.appliedDate ? new Date(dto.appliedDate) : undefined,
+      application_last_date: dto.application_last_date
+        ? new Date(dto.application_last_date)
+        : undefined,
       interviewDate: dto.interviewDate
         ? new Date(dto.interviewDate)
         : undefined,
