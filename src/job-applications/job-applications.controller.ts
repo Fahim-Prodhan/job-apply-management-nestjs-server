@@ -11,8 +11,8 @@ import {
 import { JobApplicationsService } from './job-applications.service';
 import { CreateJobApplicationDto } from './dto/create-job-application.dto';
 import { UpdateJobApplicationDto } from './dto/update-job-application.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard/jwt-auth.guard';
-import { GetUser } from 'src/auth/decorators/get-user/get-user.decorator';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard/jwt-auth.guard';
+import { GetUser } from '../auth/decorators/get-user/get-user.decorator';
 
 @UseGuards(JwtAuthGuard)
 @Controller('job-application')
