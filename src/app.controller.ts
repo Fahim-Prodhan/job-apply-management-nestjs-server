@@ -1,13 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { PrismaService } from './prisma/prisma.service';
+import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private prisma: PrismaService) {}
+  constructor(private readonly appService: AppService) {}
 
-  @Get('/')
-  async testDb() {
-    const users = await this.prisma.user.findMany();
-    return { message: 'DB connected!', users };
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
   }
 }
